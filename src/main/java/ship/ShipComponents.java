@@ -98,6 +98,20 @@ public class ShipComponents {
         eComponents.put(component.getType(), component);
     }
 
+    public ArrayList<ShipStatsModifier> getEnabledModifiers() {
+        ArrayList<Component> components = new ArrayList<>();
+        components.addAll(getWeaponsAsList());
+        components.addAll(sComponents);
+        components.addAll(getEssentials());
+
+        ArrayList<ShipStatsModifier> modifiers = new ArrayList<>();
+        for(Component component: components) {
+            if(component.enabled())
+                modifiers.addAll(component.getModifiers());
+        }
+        return modifiers;
+    }
+
     public ArrayList<ShipStatsModifier> getAllModifiers() {
         ArrayList<Component> components = new ArrayList<>();
         components.addAll(getWeaponsAsList());

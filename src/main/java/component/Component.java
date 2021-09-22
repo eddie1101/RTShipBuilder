@@ -15,6 +15,8 @@ public abstract class Component {
     protected Quality quality;
     protected float qualityCostMult = 1;
 
+    protected boolean enabled = true;
+
     protected ArrayList<ShipStatsModifier> modifiers;
 
     protected String notes;
@@ -60,9 +62,21 @@ public abstract class Component {
         return this.modifiers;
     }
 
+    public boolean enabled() {
+        return enabled;
+    }
+
+    public void toggle() {
+        enabled = !enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
     @Override
     public String toString() {
-        return this.name + ":" + this.space + "|" + this.power + "\t" + this.notes;
+        return String.format("%1$-35s|%2$-3d|%3$-3d|%4$-100s", this.name, this.space, this.power, this.notes);
     }
 
 }

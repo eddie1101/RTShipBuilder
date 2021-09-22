@@ -16,7 +16,8 @@ public abstract class EssentialComponents {
 
     public static EssentialComponent SingleVoidShieldArray() {
         return (EssentialComponent) new EssentialComponent("Single Void Shield Array", -1, -5, ComponentType.VOID_SHIELD)
-                .defineModifiers(stats -> stats.shields += 1);
+                .defineModifiers(stats -> stats.shields += 1)
+                .defineNotes("Shields +1");
     }
 
     public static EssentialComponent GellerField() {
@@ -42,12 +43,14 @@ public abstract class EssentialComponents {
 
     public static EssentialComponent m201b() {
         return (EssentialComponent) new EssentialComponent("m201b Augur Array", 0, -3, ComponentType.AUGUR_ARRAYS)
-                .defineModifiers(stats -> stats.detection += 5);
+                .defineModifiers(stats -> stats.detection += 5)
+                .defineNotes("Detection +5");
     }
 
     public static EssentialComponent VoidEye() {
         return (EssentialComponent) new EssentialComponent("Void Eye Augur Array", 0, -7, ComponentType.AUGUR_ARRAYS)
-                .defineModifiers(stats -> stats.detection += 10);
+                .defineModifiers(stats -> stats.detection += 10)
+                .defineNotes("Detection +10");
     }
 
 }

@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public abstract class Ship {
+public class Ship {
 
     protected String name;
     protected String shipClass;
@@ -122,7 +122,7 @@ public abstract class Ship {
     private ShipStats applyModifiers() {
         ShipStats retVal = new ShipStats(stats);
 
-        for(ShipStatsModifier modifier: components.getAllModifiers()) {
+        for(ShipStatsModifier modifier: components.getEnabledModifiers()) {
             modifier.apply(retVal);
         }
 
@@ -141,14 +141,14 @@ public abstract class Ship {
                 getStats().toString() + "\n" +
                 "Components: " + "\n" +
                 "\tEssential:\n" +
-                "\t\tPlasma Drive: " + getEssentialComponent(ComponentType.PLASMA_DRIVE).toString() + "\n" +
-                "\t\tWarp Engine: " + getEssentialComponent(ComponentType.WARP_ENGINE).toString() + "\n" +
-                "\t\tGeller Field: " + getEssentialComponent(ComponentType.GELLER_FIELD).toString() + "\n" +
-                "\t\tVoid Shield: " + getEssentialComponent(ComponentType.VOID_SHIELD).toString() + "\n" +
-                "\t\tBridge: " + getEssentialComponent(ComponentType.BRIDGE).toString() + "\n" +
-                "\t\tLife Sustainer: " + getEssentialComponent(ComponentType.LIFE_SUSTAINER).toString() + "\n" +
-                "\t\tCrew Quarters: " + getEssentialComponent(ComponentType.CREW_QUARTERS).toString() + "\n" +
-                "\t\tAugur Arrays: " + getEssentialComponent(ComponentType.AUGUR_ARRAYS).toString() + "\n" +
+                "\t\tPlasma Drive:---" + getEssentialComponent(ComponentType.PLASMA_DRIVE).toString() + "\n" +
+                "\t\tWarp Engine:----" + getEssentialComponent(ComponentType.WARP_ENGINE).toString() + "\n" +
+                "\t\tGeller Field:---" + getEssentialComponent(ComponentType.GELLER_FIELD).toString() + "\n" +
+                "\t\tVoid Shield:----" + getEssentialComponent(ComponentType.VOID_SHIELD).toString() + "\n" +
+                "\t\tBridge:---------" + getEssentialComponent(ComponentType.BRIDGE).toString() + "\n" +
+                "\t\tLife Sustainer:-" + getEssentialComponent(ComponentType.LIFE_SUSTAINER).toString() + "\n" +
+                "\t\tCrew Quarters:--" + getEssentialComponent(ComponentType.CREW_QUARTERS).toString() + "\n" +
+                "\t\tAugur Arrays:---" + getEssentialComponent(ComponentType.AUGUR_ARRAYS).toString() + "\n" +
                 "\tSupplemental:\n");
 
         for(SupplementalComponent component: getSupplementalComponents()) {
@@ -165,7 +165,6 @@ public abstract class Ship {
                 retVal.append("\t\t\t").append(component.toString()).append("\n");
             }
         }
-
 
         retVal.append("}");
         return retVal.toString();
