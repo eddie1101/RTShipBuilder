@@ -41,7 +41,7 @@ public class ShipStats {
         this.shipPoints = shipPoints;
     }
 
-    public ShipStats(ShipStats stats) {
+    public ShipStats(final ShipStats stats) {
                 this.hullIntegrity = stats.hullIntegrity;
                 this.speed = stats.speed;
                 this.armor = stats.armor;

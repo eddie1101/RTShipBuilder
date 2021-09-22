@@ -1,5 +1,7 @@
 import component.components.EssentialComponents;
 import component.components.SupplementalComponents;
+import component.components.WeaponComponents;
+import component.components.WeaponSlot;
 import ship.Ship;
 import ship.ShipJerichoTransport;
 
@@ -15,7 +17,10 @@ public class Main {
                 .addComponent(EssentialComponents.VitaePatternLifeSustainer())
                 .addComponent(EssentialComponents.VoidsmenQuarters())
                 .addComponent(EssentialComponents.m201b())
-                .addSupplementalComponents(SupplementalComponents.ArmorPlating(), 4);
+                .addSupplementalComponents(SupplementalComponents.ArmorPlating(), 4)
+                .addWeapon(WeaponComponents.MarsPatternMacrocannons(), WeaponSlot.PROW)
+                .addWeapon(WeaponComponents.MarsPatternMacrocannons(), WeaponSlot.PORT)
+                .addWeapon(WeaponComponents.MarsPatternMacrocannons(), WeaponSlot.STARBOARD);
 
         System.out.println(jericho);
     }

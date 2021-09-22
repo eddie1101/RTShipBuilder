@@ -17,6 +17,9 @@ public abstract class Ship {
     protected String name;
     protected String shipClass;
 
+    protected String history;
+    protected String complication;
+
     protected HullType hull;
 
     protected ShipStats stats;

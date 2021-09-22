@@ -7,7 +7,7 @@ import component.SupplementalComponent;
 public abstract class EssentialComponents {
 
     public static EssentialComponent LathePattern2A() {
-        return new EssentialComponent("Lathe Pattern 2A Drive", 40, -14, ComponentType.PLASMA_DRIVE);
+        return new EssentialComponent("Lathe Pattern 2A Drive", -14, 40, ComponentType.PLASMA_DRIVE);
     }
 
     public static EssentialComponent Strelov1() {
