@@ -1,3 +1,5 @@
+package ship.stats;
+
 @FunctionalInterface
 public interface ShipStatsModifier {
 

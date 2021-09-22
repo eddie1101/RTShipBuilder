@@ -1,3 +1,7 @@
+package ship;
+
+import ship.stats.ShipStats;
+
 public class ShipJerichoTransport extends Ship {
 
     private static final String SHIP_CLASS = "Jericho";

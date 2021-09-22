@@ -1,3 +1,5 @@
+package ship;
+
 public enum HullType {
 
     TRANSPORT,
