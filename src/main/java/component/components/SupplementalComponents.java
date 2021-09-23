@@ -22,4 +22,14 @@ public abstract class SupplementalComponents {
                 .defineNotes("Toggleable, Turret Rating +1, Detection -10");
     }
 
+    public static SupplementalComponent TowHooks() {
+        return (SupplementalComponent) new SupplementalComponent("Tow Hooks", 0, 0)
+                .defineNotes("Allows towing of other ships");
+    }
+
+    public static SupplementalComponent Countermeasures() {
+        return (SupplementalComponent) new SupplementalComponent("Countermeasures", -1, -1)
+                .defineNotes("For 1d5 + 1 turns, Incoming BS -2, Incoming Torpedo BS -30");
+    }
+
 }

@@ -2,6 +2,7 @@ package component;
 
 import ship.stats.ShipStatsModifier;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -18,6 +19,8 @@ public abstract class Component {
     protected boolean enabled = true;
 
     protected ArrayList<ShipStatsModifier> modifiers;
+    protected ShipStatsModifier goodQualityModifier;
+    protected ShipStatsModifier bestQualityModifier;
 
     protected String notes;
 
@@ -31,6 +34,8 @@ public abstract class Component {
 
         this.modifiers = new ArrayList<>();
         defineModifiers();
+        defineGoodQualityModifier(stats -> {});
+        defineBestQualityModifier(stats -> {});
     }
 
     public Component defineModifiers(ShipStatsModifier... modifiers) {
@@ -45,9 +50,34 @@ public abstract class Component {
         });
     }
 
+    public Component defineGoodQualityModifier(ShipStatsModifier modifier) {
+        this.goodQualityModifier = modifier;
+        return this;
+    }
+
+    public Component defineBestQualityModifier(ShipStatsModifier modifier) {
+        this.bestQualityModifier = modifier;
+        return this;
+    }
+
+    public Component defineQuality(Quality quality) {
+        this.quality = quality;
+        return this;
+    }
+
     public Component defineNotes(String notes) {
         this.notes = notes;
         return this;
+    }
+
+    public void upgrade() {
+        if(quality == Quality.POOR) {
+            quality = Quality.COMMON;
+        } else if(quality == Quality.COMMON) {
+            quality = Quality.GOOD;
+        } else if(quality == Quality.GOOD) {
+            quality = Quality.BEST;
+        }
     }
 
     public String getNotes() {
@@ -59,7 +89,27 @@ public abstract class Component {
     }
 
     public ArrayList<ShipStatsModifier> getModifiers() {
-        return this.modifiers;
+        ArrayList<ShipStatsModifier> modifiers = new ArrayList<>();
+        modifiers.addAll(this.modifiers);
+        if(quality.ordinal() > Quality.COMMON.ordinal()) {
+            modifiers.add(goodQualityModifier);
+        }
+        if(quality.ordinal() > Quality.GOOD.ordinal()) {
+            modifiers.add(bestQualityModifier);
+        }
+        return modifiers;
+    }
+
+    public ArrayList<ShipStatsModifier> getRawModifiers() {
+        return modifiers;
+    }
+
+    public ShipStatsModifier getGoodQualityModifier() {
+        return goodQualityModifier;
+    }
+
+    public ShipStatsModifier getBestQualityModifier() {
+        return bestQualityModifier;
     }
 
     public boolean enabled() {
