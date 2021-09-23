@@ -1,3 +1,4 @@
+import component.Quality;
 import component.components.EssentialComponents;
 import component.components.SupplementalComponents;
 import component.components.WeaponComponents;
@@ -12,19 +13,19 @@ public class Main {
 
     public static void main(String[] args) {
         Ship jericho = new Ship("Crypt", "Jericho", HullType.TRANSPORT, jerichoStats)
-                .addComponent(EssentialComponents.LathePattern2A())
-                .addComponent(EssentialComponents.Strelov1())
+                .addComponent(EssentialComponents.LathePattern2A(Quality.COMMON))
+                .addComponent(EssentialComponents.Strelov1(Quality.COMMON))
                 .addComponent(EssentialComponents.GellerField())
-                .addComponent(EssentialComponents.SingleVoidShieldArray())
-                .addComponent(EssentialComponents.ShipMastersBridge())
-                .addComponent(EssentialComponents.VitaePatternLifeSustainer())
-                .addComponent(EssentialComponents.VoidsmenQuarters())
-                .addComponent(EssentialComponents.m201b())
+                .addComponent(EssentialComponents.SingleVoidShieldArray(Quality.BEST))
+                .addComponent(EssentialComponents.ShipMastersBridge(Quality.COMMON))
+                .addComponent(EssentialComponents.VitaePatternLifeSustainer(Quality.COMMON))
+                .addComponent(EssentialComponents.VoidsmenQuarters(Quality.COMMON))
+                .addComponent(EssentialComponents.m201b(Quality.COMMON))
                 .addSupplementalComponents(SupplementalComponents.ArmorPlating(), 4)
-                .addComponent(SupplementalComponents.FlakTurrets())
-                .addWeapon(WeaponComponents.MarsPatternMacrocannons(), WeaponSlot.PROW)
-                .addWeapon(WeaponComponents.MarsPatternMacrocannons(), WeaponSlot.PORT)
-                .addWeapon(WeaponComponents.MarsPatternMacrocannons(), WeaponSlot.STARBOARD);
+                .addComponent(SupplementalComponents.FlakTurrets(Quality.BEST))
+                .addWeapon(WeaponComponents.MarsPatternMacrocannons(Quality.GOOD), WeaponSlot.PROW)
+                .addWeapon(WeaponComponents.MarsPatternMacrocannons(Quality.GOOD), WeaponSlot.PORT)
+                .addWeapon(WeaponComponents.MarsPatternMacrocannons(Quality.GOOD), WeaponSlot.STARBOARD);
 
         System.out.println(jericho);
     }

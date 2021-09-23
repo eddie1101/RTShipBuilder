@@ -1,12 +1,10 @@
 package ship;
 
 import component.*;
-import component.components.EssentialComponents;
 import component.components.WeaponSlot;
 import ship.stats.ShipStatsModifier;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class ShipComponents {

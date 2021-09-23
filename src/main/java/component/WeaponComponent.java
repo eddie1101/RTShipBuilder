@@ -1,7 +1,5 @@
 package component;
 
-import component.components.WeaponSlot;
-
 public class WeaponComponent extends Component {
 
     protected int strength;
